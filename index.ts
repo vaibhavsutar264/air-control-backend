@@ -23,7 +23,11 @@ const dataForMongodb = require("./data/index");
 
 /* CONFIGURATION */
 // dotenv.config({path:"server/config.env"});
-dotenv.config({path:"./config.env"})
+// dotenv.config({path:"./config.env"})
+// console.log(process.env);
+if(process.env.NODE_ENV !== "production" ){
+  dotenv.config({path:"./config.env"})
+}
 const app = express();
 app.use(express.json());
 app.use(helmet());
